@@ -1,0 +1,18 @@
+<h1>Welcome</h1>
+
+
+<%= form_for @task do |x| %>
+
+  <%= x.text_field :name, placeholder: "enter new task or search for existing" %>
+  <%= x.submit("Add Task") %>
+
+<% end %>
+
+<br>
+<br>
+
+<ul>
+  <% @tasks.each do |task| %>
+    <li><%= task.name %></li>
+  <% end %>
+</ul>
