@@ -12,7 +12,50 @@
 <br>
 
 <ul>
-  <% @tasks.each do |task| %>
-    <li><%= task.name %></li>
+  <h3>To Do</h3>
+  <% @normal_active.each do |task| %>
+    <li>
+      <%= task.name %>
+      <%= link_to "Completed", complete_task_path(task.id) %>
+      <%= link_to "Prioritize", prioritize_task_path(task.id) %>
+    </li>
+  <% end %>
+</ul>
+
+<br>
+
+<ul>
+  <h3>Completed</h3>
+  <% @normal_finished.each do |task| %>
+    <li class="<%= task.priority ? 'priority' : 'normal' %>">
+      <%= task.name %>
+      <%= link_to "Reactivate", reactivate_task_path(task.id) %>
+      <%= link_to "Prioritze", prioritize_task_path(task.id) %>
+    </li>
+  <% end %>
+</ul>
+
+<br>
+
+<ul>
+  <h3>Priority Tasks</h3>
+  <% @priority_active.each do |task| %>
+    <li class="<%= task.priority ? 'priority' : 'normal' %>">
+      <%= task.name %>
+      <%= link_to "Completed", complete_task_path(task.id) %>
+      <%= link_to "De-prioritize", demote_task_path(task.id) %>
+    </li>
+  <% end %>
+</ul>
+
+<br>
+
+<ul>
+  <h3>Completed Priority Tasks</h3>
+  <% @priority_finished.each do |task| %>
+    <li>
+      <%= task.name %>
+      <%= link_to "Reactivate", reactivate_task_path(task.id) %>
+    </li>
   <% end %>
 </ul>
