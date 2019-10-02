@@ -3,10 +3,13 @@ class TasksController < ApplicationController
 
   def index
     @date = Date.today
-    @normal_active = Task.all.where(:user => current_user, :active => true, :finished => false, :priority => false)
-    @normal_finished = Task.all.where(:user => current_user, :active => true, :finished => true, :priority => false)
-    @priority_active = Task.all.where(:user => current_user, :active => true, :finished => false, :priority => true)
-    @priority_finished = Task.all.where(:user => current_user, :active => true, :finished => true, :priority => true)
+    @active = Task.all.where(:user => current_user, :active => true, :finished => false)
+    @active = @active.order('priority DESC, name')
+    @finished = Task.all.where(:user => current_user, :active => true, :finished => true)
+    # @normal_active = Task.all.where(:user => current_user, :active => true, :finished => false, :priority => false)
+    # @normal_finished = Task.all.where(:user => current_user, :active => true, :finished => true, :priority => false)
+    # @priority_active = Task.all.where(:user => current_user, :active => true, :finished => false, :priority => true)
+    # @priority_finished = Task.all.where(:user => current_user, :active => true, :finished => true, :priority => true)
     @task = Task.new
   end
 
@@ -31,7 +34,7 @@ class TasksController < ApplicationController
   end
 
   def prioritize
-    @task.priority = true
+    @task.priority == true ? @task.priority = false : @task.priority = true;
     @task.save
     redirect_to tasks_path
   end

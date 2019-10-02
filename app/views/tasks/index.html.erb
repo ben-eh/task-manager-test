@@ -3,7 +3,7 @@
 
 <%= form_for @task do |x| %>
 
-  <%= x.text_field :name, placeholder: "enter new task or search for existing" %>
+  <%= x.text_field :name, placeholder: "enter new task" %>
   <%= x.submit("Add Task") %>
 
 <% end %>
@@ -11,51 +11,35 @@
 <br>
 <br>
 
-<ul>
-  <h3>To Do</h3>
-  <% @normal_active.each do |task| %>
-    <li>
-      <%= task.name %>
-      <%= link_to "Completed", complete_task_path(task.id) %>
-      <%= link_to "Prioritize", prioritize_task_path(task.id) %>
-    </li>
-  <% end %>
-</ul>
-
-<br>
-
-<ul>
-  <h3>Completed</h3>
-  <% @normal_finished.each do |task| %>
-    <li class="<%= task.priority ? 'priority' : 'normal' %>">
-      <%= task.name %>
-      <%= link_to "Reactivate", reactivate_task_path(task.id) %>
-      <%= link_to "Prioritze", prioritize_task_path(task.id) %>
-    </li>
-  <% end %>
-</ul>
-
-<br>
-
-<ul>
-  <h3>Priority Tasks</h3>
-  <% @priority_active.each do |task| %>
-    <li class="<%= task.priority ? 'priority' : 'normal' %>">
-      <%= task.name %>
-      <%= link_to "Completed", complete_task_path(task.id) %>
-      <%= link_to "De-prioritize", demote_task_path(task.id) %>
-    </li>
-  <% end %>
-</ul>
-
-<br>
-
-<ul>
-  <h3>Completed Priority Tasks</h3>
-  <% @priority_finished.each do |task| %>
-    <li>
-      <%= task.name %>
-      <%= link_to "Reactivate", reactivate_task_path(task.id) %>
-    </li>
-  <% end %>
-</ul>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6">
+      <ul>
+        <h3>To Do</h3>
+        <% @active.each do |task| %>
+          <li class="<%= task.priority ? 'priority' : 'normal' %>">
+            <%= task.name %>
+            <%= link_to "Completed", complete_task_path(task.id) %>
+            <% if task.priority == false %>
+              <%= link_to "Prioritize", prioritize_task_path(task.id) %>
+            <% elsif task.priority == true %>
+              <%= link_to "De-prioritize", prioritize_task_path(task.id) %>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="col-sm-6">
+      <ul>
+        <h3>Completed</h3>
+        <% @finished.each do |task| %>
+          <li class="<%= task.priority ? 'priority' : 'normal' %>">
+            <%= task.name %>
+            <%= link_to "Reactivate", reactivate_task_path(task.id) %>
+            <%= link_to "Prioritze", prioritize_task_path(task.id) %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
