@@ -25,6 +25,7 @@
             <% elsif task.priority == true %>
               <%= link_to "De-prioritize", prioritize_task_path(task.id) %>
             <% end %>
+            <%= link_to "Delete", task_path(task.id), method: :delete %>
           </li>
         <% end %>
       </ul>
@@ -33,13 +34,21 @@
       <ul>
         <h3>Completed</h3>
         <% @finished.each do |task| %>
-          <li class="<%= task.priority ? 'priority' : 'normal' %>">
+          <li class="<%= task.priority ? 'priority' : 'normal' %> strike">
             <%= task.name %>
             <%= link_to "Reactivate", reactivate_task_path(task.id) %>
-            <%= link_to "Prioritze", prioritize_task_path(task.id) %>
+            <% if task.priority == false %>
+              <%= link_to "Prioritze", prioritize_task_path(task.id) %>
+            <% elsif task.priority == true %>
+              <%= link_to "De-prioritize", prioritize_task_path(task.id) %>
+            <% end %>
           </li>
         <% end %>
       </ul>
     </div>
   </div>
+</div>
+
+<div class="button">
+  <%= link_to "Removed Finished", remove_old_tasks_path %>
 </div>

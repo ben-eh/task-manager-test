@@ -1,11 +1,12 @@
 class TasksController < ApplicationController
-  before_action :set_task, only: [:complete, :prioritize, :reactivate, :demote]
+  before_action :set_task, only: [:complete, :prioritize, :reactivate, :demote, :destroy]
 
   def index
     @date = Date.today
     @active = Task.all.where(:user => current_user, :active => true, :finished => false)
     @active = @active.order('priority DESC, name')
     @finished = Task.all.where(:user => current_user, :active => true, :finished => true)
+    @finished = @finished.order('priority DESC, name')
     # @normal_active = Task.all.where(:user => current_user, :active => true, :finished => false, :priority => false)
     # @normal_finished = Task.all.where(:user => current_user, :active => true, :finished => true, :priority => false)
     # @priority_active = Task.all.where(:user => current_user, :active => true, :finished => false, :priority => true)
@@ -42,6 +43,12 @@ class TasksController < ApplicationController
   def demote
     @task.priority = false
     @task.save
+    redirect_to tasks_path
+  end
+
+  def remove_old
+    @tasks = Task.all.where(:user => current_user, :active => true, :finished => true)
+    @tasks.destroy_all
     redirect_to tasks_path
   end
 

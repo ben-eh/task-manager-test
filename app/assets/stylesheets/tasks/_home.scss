@@ -1,9 +1,13 @@
 li {
-  color: red;
+  list-style: none;
 }
 
 .priority {
   background-color: purple;
   font-weight: bold;
   font: gold;
+}
+
+.strike {
+  text-decoration: line-through;
 }
