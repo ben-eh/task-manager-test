@@ -19,13 +19,21 @@
         <% @active.each do |task| %>
           <li class="<%= task.priority ? 'priority' : 'normal' %>">
             <%= task.name %>
-            <%= link_to "Completed", complete_task_path(task.id) %>
-            <% if task.priority == false %>
-              <%= link_to "Prioritize", prioritize_task_path(task.id) %>
-            <% elsif task.priority == true %>
-              <%= link_to "De-prioritize", prioritize_task_path(task.id) %>
+            <%= link_to complete_task_path(task.id) do %>
+              <i class="fas fa-check-square"></i>
             <% end %>
-            <%= link_to "Delete", task_path(task.id), method: :delete %>
+            <% if task.priority == false %>
+              <%= link_to prioritize_task_path(task.id) do %>
+                <i class="fas fa-chess-king"></i>
+              <% end %>
+            <% elsif task.priority == true %>
+              <%= link_to prioritize_task_path(task.id) do %>
+                <i class="fas fa-chess-pawn"></i>
+              <% end %>
+            <% end %>
+            <%= link_to task_path(task.id), method: :delete do %>
+              <i class="fas fa-trash-alt"></i>
+            <% end %>
           </li>
         <% end %>
       </ul>
@@ -36,11 +44,17 @@
         <% @finished.each do |task| %>
           <li class="<%= task.priority ? 'priority' : 'normal' %> strike">
             <%= task.name %>
-            <%= link_to "Reactivate", reactivate_task_path(task.id) %>
+            <%= link_to reactivate_task_path(task.id) do %>
+              <i class="fas fa-list-ul"></i>
+            <% end %>
             <% if task.priority == false %>
-              <%= link_to "Prioritze", prioritize_task_path(task.id) %>
+              <%= link_to prioritize_task_path(task.id) do %>
+                <i class="fas fa-chess-king"></i>
+              <% end %>
             <% elsif task.priority == true %>
-              <%= link_to "De-prioritize", prioritize_task_path(task.id) %>
+              <%= link_to prioritize_task_path(task.id) do %>
+                <i class="fas fa-chess-pawn"></i>
+              <% end %>
             <% end %>
           </li>
         <% end %>
