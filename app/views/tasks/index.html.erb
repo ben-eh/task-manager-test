@@ -13,7 +13,7 @@
 
 <div class="container list">
   <div class="row">
-    <div class="col-sm-6">
+    <div class="col-md-6">
       <ul>
         <h3>To Do</h3>
         <% @active.each do |task| %>
@@ -34,11 +34,14 @@
             <%= link_to task_path(task.id), method: :delete do %>
               <i class="fas fa-trash-alt"></i>
             <% end %>
+            <%= link_to edit_task_path(task.id) do %>
+              <i class="fas fa-edit"></i>
+            <% end %>
           </li>
         <% end %>
       </ul>
     </div>
-    <div class="col-sm-6">
+    <div class="col-md-6">
       <ul>
         <h3>Completed</h3>
         <% @finished.each do |task| %>
@@ -56,6 +59,12 @@
                 <i class="fas fa-chess-pawn"></i>
               <% end %>
             <% end %>
+            <%= link_to task_path(task.id), method: :delete do %>
+              <i class="fas fa-trash-alt"></i>
+            <% end %>
+            <%= link_to edit_task_path(task.id) do %>
+              <i class="fas fa-edit"></i>
+            <% end %>
           </li>
         <% end %>
       </ul>
@@ -64,5 +73,5 @@
 </div>
 
 <div class="button">
-  <%= link_to "Removed Finished", remove_old_tasks_path %>
+  <%= link_to "Remove all finished tasks", remove_old_tasks_path %>
 </div>
