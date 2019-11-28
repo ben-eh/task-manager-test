@@ -1,4 +1,4 @@
-<h1>Welcome! Today is <%= Date.today %></h1>
+<h1><%= @date.strftime("%A, %B %e") %></h1>
 
 
 <%= form_for @task do |x| %>
@@ -11,14 +11,14 @@
 <br>
 <br>
 
-<div class="container">
+<div class="container list">
   <div class="row">
     <div class="col-sm-6">
       <ul>
         <h3>To Do</h3>
         <% @active.each do |task| %>
           <li class="<%= task.priority ? 'priority' : 'normal' %>">
-            <%= task.name %>
+            <p><%= task.name %></p>
             <%= link_to complete_task_path(task.id) do %>
               <i class="fas fa-check-square"></i>
             <% end %>

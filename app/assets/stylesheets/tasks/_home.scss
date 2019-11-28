@@ -5,9 +5,17 @@ li {
 .priority {
   background-color: purple;
   font-weight: bold;
-  font: gold;
 }
 
 .strike {
   text-decoration: line-through;
+}
+
+.list a {
+  letter-spacing: 3px;
+}
+
+.list p {
+  display: inline;
+  padding-right: 3px;
 }
