@@ -75,3 +75,12 @@
 <div class="button">
   <%= link_to "Remove all finished tasks", remove_old_tasks_path %>
 </div>
+
+<a href="#" onMouseOver="ShowPicture('Style',1, 'https://i.imgur.com/B517R8S.png')" onMouseOut="ShowPicture('Style',0)">Icons Legend</a>
+<div class="imageBox" id="Style">
+    <img src="" />
+</div>
+<!-- <img src="https://i.imgur.com/B517R8S.png"> -->
+
+<!-- Inserting JS Code to see if it runs from the asset pipeline -->
+<%= javascript_include_tag "application" %>
