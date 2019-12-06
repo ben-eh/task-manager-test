@@ -1,12 +1,14 @@
-<h1><%= @date.strftime("%A, %B %e") %></h1>
+<div class="centered-div">
+  <h1><%= @date.strftime("%A, %B %e") %></h1>
 
 
-<%= form_for @task do |x| %>
+  <%= form_for @task do |x| %>
 
-  <%= x.text_field :name, placeholder: "enter new task" %>
-  <%= x.submit("Add Task") %>
+    <%= x.text_field :name, placeholder: "  enter new task" %>
+    <%= x.submit("Add Task") %>
 
-<% end %>
+  <% end %>
+</div>
 
 <br>
 <br>

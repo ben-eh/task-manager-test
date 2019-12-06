@@ -12,11 +12,20 @@
 // }
 
 .navbar {
-  background-color: orange;
+  background-color: grey;
+  display: flex;
+}
+
+.navbar-block {
+  flex: 1;
   display: flex;
   justify-content: center;
 }
 
-.navbar h1 {
-  margin: auto;
+.navbar-block:last-child {
+  justify-content: flex-end;
+}
+
+.navbar-block ul li a{
+  color: black;
 }

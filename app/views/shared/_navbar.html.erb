@@ -1,18 +1,21 @@
 <div class="navbar">
-  <div class="something">
+  <div class="navbar-block">date.Today</div>
+  <div class="navbar-block">
     <h1>Task Manager</h1>
   </div>
-  <ul class="navbar-nav mr-auto">
-    <% if user_signed_in? %>
-      <li>
-        <div>
-          <%= link_to "Log out", destroy_user_session_path, method: :delete %>
-        </div>
-      </li>
-    <% else %>
-      <li class="nav-item">
-        <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-      </li>
-    <% end %>
-  </ul>
+  <div class="navbar-block">
+    <ul>
+      <% if user_signed_in? %>
+        <li>
+          <div>
+            <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+          </div>
+        </li>
+      <% else %>
+        <li>
+          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
 </div>
