@@ -1,1 +1,33 @@
 // Specific CSS for your home-page
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 5em;
+}
+
+.login-div {
+  background-color: blue;
+  width: 50%;
+  text-align: center;
+  // display: flex;
+  justify-content: center;
+}
+
+.btn {
+  border-radius: 10%;
+  padding: .2em;
+}
+
+.login-form-div {
+  display: flex;
+  justify-content: center;
+}
+
+.login-form {
+  width: 50%;
+}
+
+.zero-margins {
+  margin: 0;
+}

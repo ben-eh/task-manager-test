@@ -1,10 +1,14 @@
 <div class="navbar">
-  <div class="navbar-block"><%= @date.strftime("%A, %B %e") %></div>
+  <% if user_signed_in? %>
+    <div class="navbar-block"><%= @date.strftime("%A, %B %e") %></div>
+  <% else %>
+    <div class="navbar-block"></div>
+  <% end %>
   <div class="navbar-block">
     <h1>Task Manager</h1>
   </div>
   <div class="navbar-block">
-    <ul>
+    <ul class="zero-margins">
       <% if user_signed_in? %>
         <li>
           <div>
