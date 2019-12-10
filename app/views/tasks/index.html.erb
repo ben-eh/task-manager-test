@@ -1,6 +1,4 @@
-<div class="centered-div">
-  <h1><%= @date.strftime("%A, %B %e") %></h1>
-
+<div class="form centered-div">
 
   <%= form_for @task do |x| %>
 
@@ -17,7 +15,7 @@
   <div class="row">
     <div class="col-md-6">
       <ul>
-        <h3>To Do</h3>
+        <h3 class="centered-text">To Do</h3>
         <% @active.each do |task| %>
           <li class="<%= task.priority ? 'priority' : 'normal' %>">
             <p><%= task.name %></p>
@@ -45,7 +43,7 @@
     </div>
     <div class="col-md-6">
       <ul>
-        <h3>Completed</h3>
+        <h3 class="centered-text">Completed</h3>
         <% @finished.each do |task| %>
           <li class="<%= task.priority ? 'priority' : 'normal' %> strike">
             <%= task.name %>
