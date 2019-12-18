@@ -26,6 +26,7 @@ class TasksController < ApplicationController
 
   def edit
     # raise
+    @date = Date.today
   end
 
   def update

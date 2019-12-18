@@ -15,29 +15,68 @@
   <div class="row">
     <div class="col-md-6">
       <ul class="list-uls">
-        <h3 class="centered-text" style="text-decoration: underline">To Do</h3>
-        <% @active.each do |task| %>
-          <li class="<%= task.priority ? 'priority' : 'normal' %>">
-            <p><%= task.name %></p>
-            <%= link_to complete_task_path(task.id) do %>
-              <i class="fas fa-check-square"></i>
-            <% end %>
-            <% if task.priority == false %>
-              <%= link_to prioritize_task_path(task.id) do %>
-                <i class="fas fa-chess-king"></i>
+        <% if @priority.count > 0 %>
+          <h3 class="centered-text" style="text-decoration: underline">Priorities</h3>
+          <% @priority.each do |task| %>
+            <li class="<%= task.priority ? 'priority' : 'normal' %>">
+              <p><%= task.name %></p>
+              <%= link_to complete_task_path(task.id) do %>
+                <i class="fas fa-check-square"></i>
               <% end %>
-            <% elsif task.priority == true %>
               <%= link_to prioritize_task_path(task.id) do %>
                 <i class="fas fa-chess-pawn"></i>
               <% end %>
-            <% end %>
-            <%= link_to task_path(task.id), method: :delete do %>
-              <i class="fas fa-trash-alt"></i>
-            <% end %>
-            <%= link_to edit_task_path(task.id) do %>
-              <i class="fas fa-edit"></i>
-            <% end %>
-          </li>
+              <%= link_to task_path(task.id), method: :delete do %>
+                <i class="fas fa-trash-alt"></i>
+              <% end %>
+              <%= link_to edit_task_path(task.id) do %>
+                <i class="fas fa-edit"></i>
+              <% end %>
+            </li>
+          <% end %>
+          <h3 class="centered-text secondary-tasks" style="text-decoration: underline">Secondary Tasks</h3>
+          <% @normal.each do |task| %>
+            <li class="<%= task.priority ? 'priority' : 'normal' %>">
+              <p><%= task.name %></p>
+              <%= link_to complete_task_path(task.id) do %>
+                <i class="fas fa-check-square"></i>
+              <% end %>
+              <%= link_to prioritize_task_path(task.id) do %>
+                <i class="fas fa-chess-king"></i>
+              <% end %>
+              <%= link_to task_path(task.id), method: :delete do %>
+                <i class="fas fa-trash-alt"></i>
+              <% end %>
+              <%= link_to edit_task_path(task.id) do %>
+                <i class="fas fa-edit"></i>
+              <% end %>
+            </li>
+          <% end %>
+        <% else %>
+          <h3 class="centered-text" style="text-decoration: underline">To Do</h3>
+          <% @normal.each do |task| %>
+            <li class="<%= task.priority ? 'priority' : 'normal' %>">
+              <p><%= task.name %></p>
+              <%= link_to complete_task_path(task.id) do %>
+                <i class="fas fa-check-square"></i>
+              <% end %>
+              <% if task.priority == false %>
+                <%= link_to prioritize_task_path(task.id) do %>
+                  <i class="fas fa-chess-king"></i>
+                <% end %>
+              <% elsif task.priority == true %>
+                <%= link_to prioritize_task_path(task.id) do %>
+                  <i class="fas fa-chess-pawn"></i>
+                <% end %>
+              <% end %>
+              <%= link_to task_path(task.id), method: :delete do %>
+                <i class="fas fa-trash-alt"></i>
+              <% end %>
+              <%= link_to edit_task_path(task.id) do %>
+                <i class="fas fa-edit"></i>
+              <% end %>
+            </li>
+          <% end %>
         <% end %>
       </ul>
     </div>

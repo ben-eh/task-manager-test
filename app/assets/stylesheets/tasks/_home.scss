@@ -1,5 +1,10 @@
 .list-uls {
-  display: inline-block;
+  // display: inline-block;
+  // width: 100%;
+}
+
+.list-uls li {
+  text-align: center;
 }
 
 li {
@@ -24,6 +29,10 @@ li {
 .list p {
   display: inline;
   padding-right: 1.5em;
+}
+
+.secondary-tasks {
+  margin-top: 1em;
 }
 
 .centered-div {

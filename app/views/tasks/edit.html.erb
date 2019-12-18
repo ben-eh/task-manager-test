@@ -1,6 +1,8 @@
-<%= form_for @task do |x| %>
+<div class="form centered-text">
+  <%= form_for @task do |x| %>
 
-  <%= x.text_field :name %>
-  <%= x.submit("Submit") %>
+    <%= x.text_field :name %>
+    <%= x.submit("Submit") %>
 
-<% end %>
+  <% end %>
+</div>
