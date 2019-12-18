@@ -7,6 +7,8 @@ class TasksController < ApplicationController
     @active = @active.order('priority DESC, name')
     @finished = Task.all.where(:user => current_user, :active => true, :finished => true)
     @finished = @finished.order('priority DESC, name')
+    @priority = @active.where(:priority => true)
+    @normal = @active.where(:priority => false)
     # @normal_active = Task.all.where(:user => current_user, :active => true, :finished => false, :priority => false)
     # @normal_finished = Task.all.where(:user => current_user, :active => true, :finished => true, :priority => false)
     # @priority_active = Task.all.where(:user => current_user, :active => true, :finished => false, :priority => true)

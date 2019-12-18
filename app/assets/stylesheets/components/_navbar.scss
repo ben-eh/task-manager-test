@@ -12,8 +12,9 @@
 // }
 
 .navbar {
-  background-color: grey;
+  background-color: #0A122A;
   display: flex;
+  font-family: 'Lato', sans-serif !important;
 }
 
 .navbar-block {
@@ -27,5 +28,6 @@
 }
 
 .navbar-block ul li a{
-  color: black;
+  color: #E7DECD;
 }
+

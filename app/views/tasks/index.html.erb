@@ -14,8 +14,8 @@
 <div class="container list">
   <div class="row">
     <div class="col-md-6">
-      <ul>
-        <h3 class="centered-text">To Do</h3>
+      <ul class="list-uls">
+        <h3 class="centered-text" style="text-decoration: underline">To Do</h3>
         <% @active.each do |task| %>
           <li class="<%= task.priority ? 'priority' : 'normal' %>">
             <p><%= task.name %></p>
@@ -42,28 +42,13 @@
       </ul>
     </div>
     <div class="col-md-6">
-      <ul>
-        <h3 class="centered-text">Completed</h3>
+      <ul class="list-uls">
+        <h3 class="centered-text" style="text-decoration: underline">Completed</h3>
         <% @finished.each do |task| %>
           <li class="<%= task.priority ? 'priority' : 'normal' %> strike">
-            <%= task.name %>
+            <p><%= task.name %></p>
             <%= link_to reactivate_task_path(task.id) do %>
               <i class="fas fa-list-ul"></i>
-            <% end %>
-            <% if task.priority == false %>
-              <%= link_to prioritize_task_path(task.id) do %>
-                <i class="fas fa-chess-king"></i>
-              <% end %>
-            <% elsif task.priority == true %>
-              <%= link_to prioritize_task_path(task.id) do %>
-                <i class="fas fa-chess-pawn"></i>
-              <% end %>
-            <% end %>
-            <%= link_to task_path(task.id), method: :delete do %>
-              <i class="fas fa-trash-alt"></i>
-            <% end %>
-            <%= link_to edit_task_path(task.id) do %>
-              <i class="fas fa-edit"></i>
             <% end %>
           </li>
         <% end %>
@@ -72,15 +57,15 @@
   </div>
 </div>
 
-<div class="button">
-  <%= link_to "Remove all finished tasks", remove_old_tasks_path %>
+<div class="centered-div" style="margin-top: 3em">
+  <div class="remove-tasks-button">
+    <%= link_to "Remove all finished tasks", remove_old_tasks_path %>
+  </div>
+
+  <a href="#" class="legend" onMouseOver="ShowPicture('Style',1, 'https://i.imgur.com/B517R8S.png')" onMouseOut="ShowPicture('Style',0)">Icons Legend</a>
+  <div class="imageBox" id="Style">
+      <img src="" />
+  </div>
 </div>
 
-<a href="#" onMouseOver="ShowPicture('Style',1, 'https://i.imgur.com/B517R8S.png')" onMouseOut="ShowPicture('Style',0)">Icons Legend</a>
-<div class="imageBox" id="Style">
-    <img src="" />
-</div>
-<!-- <img src="https://i.imgur.com/B517R8S.png"> -->
-
-<!-- Inserting JS Code to see if it runs from the asset pipeline -->
 <%= javascript_include_tag "application" %>

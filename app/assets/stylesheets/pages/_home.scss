@@ -7,7 +7,6 @@
 }
 
 .devise-div {
-  background-color: blue;
   width: 50%;
   text-align: center;
   // display: flex;
@@ -16,7 +15,29 @@
 
 .btn {
   border-radius: 10%;
-  padding: .2em;
+  padding: .5em;
+  background-color: #0A122A;
+  color: #E7DECD;
+  border: none;
+  margin-bottom: .8em;
+}
+
+.btn:hover {
+  color: #E7DECD;
+  border: none;
+}
+
+.password-btn {
+  border-radius: 4% !important;
+  padding: .5em;
+  background-color: #0A122A;
+  color: #E7DECD;
+  border: none;
+}
+
+.password-btn:hover {
+  color: #E7DECD;
+  border: none;
 }
 
 .devise-form-div {
@@ -30,4 +51,19 @@
 
 .zero-margins {
   margin: 0;
+}
+
+body {
+  background-color: #804E49;
+  color: #E7DECD;
+  font-family: 'Lato', sans-serif;
+}
+
+.devise-div a {
+  color: #E7DECD;
+  margin: 20px 20px;
+}
+
+.text-muted {
+  color: #0A122A !important;
 }

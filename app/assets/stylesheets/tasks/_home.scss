@@ -1,10 +1,15 @@
+.list-uls {
+  display: inline-block;
+}
+
 li {
   list-style: none;
 }
 
 .priority {
-  background-color: purple;
+  // background-color: purple;
   font-weight: bold;
+  font-size: 1.1rem;
 }
 
 .strike {
@@ -12,12 +17,13 @@ li {
 }
 
 .list a {
-  letter-spacing: 5px;
+  letter-spacing: .5em;
+  color: #0A122A;
 }
 
 .list p {
   display: inline;
-  padding-right: 3px;
+  padding-right: 1.5em;
 }
 
 .centered-div {
@@ -32,3 +38,28 @@ li {
   text-align: center;
 }
 
+.legend {
+  display: block;
+  margin-top: 2em;
+  color: #E7DECD;
+}
+
+a.legend {
+  text-decoration: none;
+}
+
+a.legend:hover {
+  color: #E7DECD;
+}
+
+.remove-tasks-button {
+  background-color: #0A122A;
+  padding: 1em;
+  display: inline;
+  border-radius: 5%;
+}
+
+.remove-tasks-button a {
+  text-decoration: none;
+  color: #E7DECD;
+}
