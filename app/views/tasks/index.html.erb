@@ -34,7 +34,9 @@
               <% end %>
             </li>
           <% end %>
-          <h3 class="centered-text secondary-tasks" style="text-decoration: underline">Secondary Tasks</h3>
+          <% if @normal.count > 0 %>
+            <h3 class="centered-text secondary-tasks" style="text-decoration: underline">Secondary Tasks</h3>
+          <% end %>
           <% @normal.each do |task| %>
             <li class="<%= task.priority ? 'priority' : 'normal' %>">
               <p><%= task.name %></p>
