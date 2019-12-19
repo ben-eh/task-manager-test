@@ -99,11 +99,13 @@
 </div>
 
 <div class="centered-div" style="margin-top: 3em">
-  <div class="remove-tasks-button">
-    <%= link_to "Remove all finished tasks", remove_old_tasks_path %>
+  <div class="remove-tasks-div">
+    <div class="remove-tasks-button">
+      <%= link_to "Remove all finished tasks", remove_old_tasks_path %>
+    </div>
   </div>
 
-  <a href="#" class="legend" onMouseOver="ShowPicture('Style',1, 'https://i.imgur.com/B517R8S.png')" onMouseOut="ShowPicture('Style',0)">Icons Legend</a>
+  <a href="#" style ="display: inline-block" class="legend" onMouseOver="ShowPicture('Style',1, 'https://i.imgur.com/B517R8S.png')" onMouseOut="ShowPicture('Style',0)">Icons Legend</a>
   <div class="imageBox" id="Style">
       <img src="" />
   </div>
